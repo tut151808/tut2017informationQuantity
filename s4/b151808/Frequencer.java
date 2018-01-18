@@ -138,9 +138,10 @@ public class Frequencer implements FrequencerInterface{
     	// if suffix_i < target_start_end it return -1 ** //
     	// It should be used to search the apropriate index of some suffix.
     	for(int j=0;j<(end-start);j++){
-    		if(mySpace[suffixArray[i]]<myTarget[j]){return 1;}
-    		else if(mySpace[suffixArray[i]]>myTarget[j]){return -1;}
+    		if(mySpace[suffixArray[i]+j]>myTarget[j]){return -1;}
+    		else if(mySpace[suffixArray[i]+j]<myTarget[j]){return 1;}
     	}
+    	System.out.println("a");
     	return 0;
     }
 
@@ -150,7 +151,7 @@ public class Frequencer implements FrequencerInterface{
     	// For "Ho", it will return 5 for "Hi Ho Hi Ho".
     	// For "Ho ", it will return 6 for "Hi Ho Hi Ho".
     	int n=0;
-    	for(int i=0;i<mySpace.length;i++){
+    	for(int i=0;i<mySpace.length-1;i++){
     		if(targetCompare(i,start,end)==0){n=i;break;}
     	}
     	return n;
@@ -161,7 +162,7 @@ public class Frequencer implements FrequencerInterface{
     	// For "Ho", it will return 7 for "Hi Ho Hi Ho".
     	// For "Ho ", it will return 7 for "Hi Ho Hi Ho".
     	int n=0;
-    	for(int i=0;i<mySpace.length;i++){
+    	for(int i=0;i<mySpace.length-1;i++){
     		if(targetCompare(i,start,end)==-1){n=i;break;}
     	}
     	return n;
@@ -173,9 +174,9 @@ public class Frequencer implements FrequencerInterface{
     	frequencerObject = new Frequencer();
     	frequencerObject.setSpace("Hi Ho Hi Ho".getBytes()); 
     	frequencerObject.setTarget("Ho".getBytes()); 
-    	int result = frequencerObject.frequency(); System.out.print("Freq = "+ result+" ");
-    	if(4 == result) { System.out.println("OK"); }
-    	else {System.out.println("WRONG"); } 
+    	int result = frequencerObject.frequency(); System.out.println("Freq = "+ result+" ");
+    	/*if(4 == result) { System.out.println("OK"); }
+    	else {System.out.println("WRONG"); } */
     	}
     	catch(Exception e) {
     		e.printStackTrace();
