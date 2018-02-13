@@ -1,4 +1,4 @@
-package s4.b151808; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID. 
+package s4.b151808; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID.
 import java.lang.*;
 import s4.specification.*;
 
@@ -14,7 +14,6 @@ interface FrequencerInterface {     // This interface provides the design for fr
     // For the incorrect value of START or END, the behavior is undefined.
 }
 */
-
 
 /*
 package s4.specification;
@@ -42,10 +41,7 @@ public class TestCase {
 	    freq = myObject.frequency();
 	    System.out.print("\"H\" in \"Hi Ho Hi Ho\" appears "+freq+" times. ");
 	    if(4 == freq) { System.out.println("OK"); } else {System.out.println("WRONG"); }
-        freq=myObject.subByteFrequency(0,4);
-        System.out.print("\"H\" in \"Hi Ho\" appears "+freq+" times. ");
-        if(2==freq){ System.out.println("OK"); } else {System.out.println("WRONG"); }
-    }
+	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}
@@ -54,7 +50,7 @@ public class TestCase {
 	    InformationEstimatorInterface myObject;
 	    double value;
 	    System.out.println("checking s4.b151808.InformationEstimator");
-	    myObject = new s4.b151808.InformationEstimator();
+	    myObject = new s4.sample2.InformationEstimator();
 	    myObject.setSpace("3210321001230123".getBytes());
 	    myObject.setTarget("0".getBytes());
 	    value = myObject.estimation();
@@ -68,10 +64,7 @@ public class TestCase {
 	    myObject.setTarget("00".getBytes());
 	    value = myObject.estimation();
 	    System.out.println(">00 "+value);
-        myObject.setTarget("20".getBytes());
-        value = myObject.estimation();
-        System.out.println(">20 "+value);
-    }
+	}
 	catch(Exception e) {
 	    System.out.println("Exception occurred: STOP");
 	}

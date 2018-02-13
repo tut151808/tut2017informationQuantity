@@ -1,9 +1,9 @@
-//package s4.b151808; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID. 
+package s4.b151808; // Please modify to s4.Bnnnnnn, where nnnnnn is your student ID. 
 import java.lang.*;
-//import s4.specification.*;
+import s4.specification.*;
 
 
-interface FrequencerInterface {     // This interface provides the design for frequency counter.
+/*interface FrequencerInterface {     // This interface provides the design for frequency counter.
     void setTarget(byte[]  target); // set the data to search.
     void setSpace(byte[]  space);  // set the data to be searched target from.
     int frequency(); //It return -1, when TARGET is not set or TARGET's length is zero
@@ -12,7 +12,7 @@ interface FrequencerInterface {     // This interface provides the design for fr
     int subByteFrequency(int start, int end);
     // get the frequency of subByte of taget, i.e target[start], taget[start+1], ... , target[end-1].
     // For the incorrect value of START or END, the behavior is undefined.
-}
+}*/
 
 
 public class Frequencer implements FrequencerInterface{
@@ -61,7 +61,7 @@ public class Frequencer implements FrequencerInterface{
     		}
     		if(f==true)break;	//一度も入れ替わらなかったらソート終了
     	}
-    	printSuffixArray();
+    	//printSuffixArray();
     }
     	
     public int frequency() {
@@ -85,8 +85,8 @@ public class Frequencer implements FrequencerInterface{
     	int first = subByteStartIndex(start,end);
     	int last1 = subByteEndIndex(start,end);
     	//inspection code
-    	for(int k=start;k<end;k++) { System.out.write(myTarget[k]); } 
-    	System.out.printf(": first=%d last1=%d\n", first, last1);
+    	//for(int k=start;k<end;k++) { System.out.write(myTarget[k]); } 
+    	//System.out.printf(": first=%d last1=%d\n", first, last1);
     	return last1 - first;
     	}
 
@@ -141,7 +141,6 @@ public class Frequencer implements FrequencerInterface{
     		if(mySpace[suffixArray[i]+j]>myTarget[j]){return -1;}
     		else if(mySpace[suffixArray[i]+j]<myTarget[j]){return 1;}
     	}
-    	System.out.println("a");
     	return 0;
     }
 
